@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,7 @@
 		C21162EB248E3C2C00452742 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C21162EA248E3C2C00452742 /* Assets.xcassets */; };
 		C21162EE248E3C2C00452742 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C21162ED248E3C2C00452742 /* Preview Assets.xcassets */; };
 		C21162F1248E3C2C00452742 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C21162EF248E3C2C00452742 /* LaunchScreen.storyboard */; };
+		C237AAFB24921EF5008C4E62 /* MovingNumbersView in Frameworks */ = {isa = PBXBuildFile; productRef = C237AAFA24921EF5008C4E62 /* MovingNumbersView */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C237AAFB24921EF5008C4E62 /* MovingNumbersView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +93,9 @@
 			dependencies = (
 			);
 			name = "Stock Calculator";
+			packageProductDependencies = (
+				C237AAFA24921EF5008C4E62 /* MovingNumbersView */,
+			);
 			productName = "Stock Calculator";
 			productReference = C21162E1248E3C2B00452742 /* Stock Calculator.app */;
 			productType = "com.apple.product-type.application";
@@ -119,6 +124,9 @@
 				Base,
 			);
 			mainGroup = C21162D8248E3C2B00452742;
+			packageReferences = (
+				C237AAF924921EF5008C4E62 /* XCRemoteSwiftPackageReference "MovingNumbersView" */,
+			);
 			productRefGroup = C21162E2248E3C2B00452742 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -289,6 +297,7 @@
 				DEVELOPMENT_TEAM = ABTQU9L2C5;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Stock Calculator/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -309,6 +318,7 @@
 				DEVELOPMENT_TEAM = ABTQU9L2C5;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Stock Calculator/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -342,6 +352,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C237AAF924921EF5008C4E62 /* XCRemoteSwiftPackageReference "MovingNumbersView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/aunnnn/MovingNumbersView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C237AAFA24921EF5008C4E62 /* MovingNumbersView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C237AAF924921EF5008C4E62 /* XCRemoteSwiftPackageReference "MovingNumbersView" */;
+			productName = MovingNumbersView;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C21162D9248E3C2B00452742 /* Project object */;
 }
