@@ -13,6 +13,7 @@
 		C21162EB248E3C2C00452742 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C21162EA248E3C2C00452742 /* Assets.xcassets */; };
 		C21162EE248E3C2C00452742 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C21162ED248E3C2C00452742 /* Preview Assets.xcassets */; };
 		C21162F1248E3C2C00452742 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C21162EF248E3C2C00452742 /* LaunchScreen.storyboard */; };
+		C22C410D24947F99005BB5BC /* ShareDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22C410C24947F99005BB5BC /* ShareDetails.swift */; };
 		C237AAFB24921EF5008C4E62 /* MovingNumbersView in Frameworks */ = {isa = PBXBuildFile; productRef = C237AAFA24921EF5008C4E62 /* MovingNumbersView */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +26,7 @@
 		C21162ED248E3C2C00452742 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C21162F0248E3C2C00452742 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C21162F2248E3C2C00452742 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C22C410C24947F99005BB5BC /* ShareDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareDetails.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				C21162E4248E3C2B00452742 /* AppDelegate.swift */,
 				C21162E6248E3C2B00452742 /* SceneDelegate.swift */,
 				C21162E8248E3C2B00452742 /* ContentView.swift */,
+				C22C410C24947F99005BB5BC /* ShareDetails.swift */,
 				C21162EA248E3C2C00452742 /* Assets.xcassets */,
 				C21162EF248E3C2C00452742 /* LaunchScreen.storyboard */,
 				C21162F2248E3C2C00452742 /* Info.plist */,
@@ -156,6 +159,7 @@
 			files = (
 				C21162E5248E3C2B00452742 /* AppDelegate.swift in Sources */,
 				C21162E7248E3C2B00452742 /* SceneDelegate.swift in Sources */,
+				C22C410D24947F99005BB5BC /* ShareDetails.swift in Sources */,
 				C21162E9248E3C2B00452742 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,7 +301,7 @@
 				DEVELOPMENT_TEAM = ABTQU9L2C5;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Stock Calculator/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -305,7 +309,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.daee.Stock-Calculator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -318,7 +322,7 @@
 				DEVELOPMENT_TEAM = ABTQU9L2C5;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Stock Calculator/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -326,7 +330,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.daee.Stock-Calculator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

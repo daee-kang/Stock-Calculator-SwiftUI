@@ -10,37 +10,9 @@ import MovingNumbersView
 import SwiftUI
 
 struct ContentView: View {
-    @State private var sharePrice = ""
-    @State private var shareAmount = ""
-    @State private var targetPrice = ""
+    @ObservedObject var shareDetails = ShareDetail()
     
-    //    onEditingChanged: { (editingChanged) in
-    //        if editingChanged {
-    //            print("TextField focused")
-    //        } else {
-    //            print("TextField focus removed")
-    //        }
-    //    })
-    @State private var targetPriceSet: Bool = false
-    
-    var sharePriceNum: Double {
-        return Double(sharePrice) ?? 0
-    }
-    
-    var shareAmountNum: Int {
-        return Int(shareAmount) ?? 0
-    }
-    
-    var targetPriceNum: Double {
-        return Double(targetPrice) ?? 0
-    }
-    
-    var total: Double {
-        let targetStock: Double = targetPriceNum * Double(shareAmountNum)
-        let originalStock: Double = sharePriceNum * Double(shareAmountNum)
-        return targetStock - originalStock
-    }
-    
+
     var body: some View {
         NavigationView {
             GeometryReader { geometry in
@@ -51,10 +23,10 @@ struct ContentView: View {
                         HStack{
                             Button(action: {
                                 self.hideKeyboard()
-                                self.sharePrice = "0.00"
-                                self.shareAmount = "0"
-                                self.targetPrice = "0.00"
-                                self.targetPriceSet = false
+                                self.shareDetails.sharePrice = "0.00"
+                                self.shareDetails.shareAmount = "0"
+                                self.shareDetails.targetPrice = "0.00"
+                                self.shareDetails.targetPriceSet = false
                             }){
                                 Image(systemName: "gobackward")
                                     .foregroundColor(self.hexStringToUIColor(hex: "457B9D"))
@@ -74,7 +46,7 @@ struct ContentView: View {
                                     .font(.system(size: 50))
                                     .foregroundColor(self.hexStringToUIColor(hex: "2a9d8f"))
                                 MovingNumbersView(
-                                    number: self.total,
+                                    number: self.shareDetails.total,
                                     numberOfDecimalPlaces: 2) { str in
                                         // How to build each character
                                         Text(str)
@@ -89,7 +61,7 @@ struct ContentView: View {
                                     .foregroundColor(Color.white)
                                 Text("$")
                                     .foregroundColor(Color.white)
-                                MovingNumbersView(number: self.sharePriceNum * Double(self.shareAmountNum) + self.total, numberOfDecimalPlaces: 2) { str in
+                                MovingNumbersView(number: self.shareDetails.cashOut, numberOfDecimalPlaces: 2) { str in
                                     Text(str)
                                         .foregroundColor(Color.white)
                                 }
@@ -114,7 +86,7 @@ struct ContentView: View {
                                             .foregroundColor(Color.white)
                                         Text("$")
                                             .foregroundColor(Color.white)
-                                        MovingNumbersView(number: self.sharePriceNum * Double(self.shareAmountNum), numberOfDecimalPlaces: 2) { str in
+                                        MovingNumbersView(number: self.shareDetails.cashIn, numberOfDecimalPlaces: 2) { str in
                                             Text(str)
                                                 .foregroundColor(Color.white)
                                         }
@@ -127,13 +99,13 @@ struct ContentView: View {
                                     HStack{
                                         Spacer()
                                         VStack(alignment: .center){//cost per1 share
-                                            TextField("5.00", text: self.$sharePrice, onEditingChanged: {(editingChanged) in
+                                            TextField("5.00", text: self.$shareDetails.sharePrice, onEditingChanged: {(editingChanged) in
                                                 if editingChanged {
                                                     //
                                                 } else {
-                                                    self.sharePrice = self.verifyAndFormatSharePrice(price: self.sharePrice)
-                                                    if(!self.targetPriceSet) {
-                                                        self.targetPrice = self.sharePrice
+                                                    self.shareDetails.sharePrice = self.verifyAndFormatSharePrice(price: self.shareDetails.sharePrice)
+                                                    if(!self.shareDetails.targetPriceSet) {
+                                                        self.shareDetails.targetPrice = self.shareDetails.sharePrice
                                                     }
                                                 }
                                             })
@@ -150,11 +122,10 @@ struct ContentView: View {
                                         }
                                         Spacer()
                                         VStack(alignment: .center){// number of shares
-                                            TextField("100", text: self.$shareAmount, onEditingChanged: {(editingChanged) in
+                                            TextField("100", text: self.$shareDetails.shareAmount, onEditingChanged: {(editingChanged) in
                                                 if editingChanged {
                                                     //
                                                 } else {
-                                                    print("focus off")
                                                 }
                                             })
                                                 .multilineTextAlignment(.center)
@@ -175,12 +146,12 @@ struct ContentView: View {
                                     //maybe search function here
                                     
                                     VStack{ //Target price
-                                        TextField("10.00", text: self.$targetPrice, onEditingChanged: {(editingChanged) in
+                                        TextField("10.00", text: self.$shareDetails.targetPrice, onEditingChanged: {(editingChanged) in
                                             if editingChanged {
                                                 //
                                             } else {
-                                                self.targetPriceSet = true
-                                                self.targetPrice = self.verifyAndFormatSharePrice(price: self.targetPrice)
+                                                self.shareDetails.targetPriceSet = true
+                                                self.shareDetails.targetPrice = self.verifyAndFormatSharePrice(price: self.shareDetails.targetPrice)
                                             }
                                         })
                                             .multilineTextAlignment(.center)
@@ -266,11 +237,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
-            ContentView()
-                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
-                .previewDisplayName("iPhone SE")
-        }
+        ContentView()
     }
 }
 
